@@ -59,3 +59,8 @@ service "jenkins" do
   supports :restart => true, :reload => true, :status => true
   action [ :enable, :start ]
 end
+
+rvm_install "ree-1.8.7-2011.03" do
+  gemset "minds"
+  project_dir "/var/lib/jenkins"
+end
