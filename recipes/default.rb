@@ -26,10 +26,6 @@ when "redhat"
     not_if "rpm -q jenkins"
     action :run
   end
-  execute "Upgrade Jenkins" do
-    command "yum upgrade"
-    action :run
-  end
 when "debian"
   execute "Install Jenkins deb from URL" do
     command "(wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -); echo 'deb http://pkg.jenkins-ci.org/debian binary/' > /etc/apt/sources.list.d/jenkins.list; aptitude update; aptitude -y install jenkins"
